@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import pickle
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -13,20 +12,10 @@ st.set_page_config(
 
 @st.cache_data
 def load_data():
-    return pd.read_csv('outputs/risk_scores.csv')
-
-@st.cache_resource
-def load_model():
-    with open('outputs/xgb_model.pkl', 'rb') as f:
-        model = pickle.load(f)
-    with open('outputs/scaler_final.pkl', 'rb') as f:
-        scaler = pickle.load(f)
-    with open('outputs/feature_names_final.pkl', 'rb') as f:
-        features = pickle.load(f)
-    return model, scaler, features
+    url = "https://raw.githubusercontent.com/mohankumawat17-bit/APL-Logistics-Risk-Prediction/main/risk_scores.csv"
+    return pd.read_csv(url)
 
 df = load_data()
-model, scaler, features = load_model()
 
 # title
 st.title("🚚 APL Logistics — Late Delivery Risk Dashboard")
@@ -45,19 +34,18 @@ with col4:
 
 st.markdown("---")
 
-# section 1 - risk distribution chart
+# section 1 - risk distribution
 st.subheader("📊 Risk Distribution Overview")
 
 col1, col2 = st.columns(2)
 
 with col1:
-    # bar chart
     risk_counts = df['Risk_Category'].value_counts()
-    colors = {'Low Risk': 'green', 'Medium Risk': 'orange', 'High Risk': 'red'}
+    colors_map = {'Low Risk': 'green', 'Medium Risk': 'orange', 'High Risk': 'red'}
 
     fig, ax = plt.subplots(figsize=(6, 4))
     bars = ax.bar(risk_counts.index, risk_counts.values,
-                  color=[colors[x] for x in risk_counts.index])
+                  color=[colors_map[x] for x in risk_counts.index])
     for bar, count in zip(bars, risk_counts.values):
         ax.text(bar.get_x() + bar.get_width()/2,
                 bar.get_height() + 100,
@@ -67,36 +55,33 @@ with col1:
     st.pyplot(fig)
 
 with col2:
-    # pie chart
     fig2, ax2 = plt.subplots(figsize=(6, 4))
     ax2.pie(risk_counts.values,
             labels=risk_counts.index,
-            colors=[colors[x] for x in risk_counts.index],
+            colors=[colors_map[x] for x in risk_counts.index],
             autopct='%1.1f%%', startangle=90)
     ax2.set_title('Risk Category Breakdown')
     st.pyplot(fig2)
 
 st.markdown("---")
 
-# section 2 - feature importance
+# section 2 - feature importance image
 st.subheader("🔍 What causes late delivery?")
-st.image('outputs/feature_importance.png', use_container_width=True)
+feat_url = "https://raw.githubusercontent.com/mohankumawat17-bit/APL-Logistics-Risk-Prediction/main/feature_importance.png"
+st.image(feat_url, use_container_width=True)
 
 st.markdown("---")
 
-# section 3 - high risk orders table
+# section 3 - high risk orders
 st.subheader("🔴 High Risk Orders — Immediate Attention Required")
-
 high_risk_df = df[df['Risk_Category'] == 'High Risk'].sort_values(
     'Late_Probability', ascending=False).reset_index(drop=True)
-
 st.dataframe(high_risk_df.head(20), use_container_width=True)
 
 st.markdown("---")
 
 # section 4 - probability distribution
 st.subheader("📈 Late Delivery Probability Distribution")
-
 fig3, ax3 = plt.subplots(figsize=(10, 4))
 ax3.hist(df['Late_Probability'], bins=50, color='steelblue', edgecolor='white')
 ax3.axvline(x=0.4, color='orange', linestyle='--', label='Medium Risk threshold')
