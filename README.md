@@ -9,7 +9,17 @@ Built as part of **Unified Mentor Data Analyst Internship** | May 2026
 
 ---
 
-## Problem Statement
+## 🎯 Business Objectives
+
+- Predict late delivery risk before shipment.
+- Identify high-risk orders for proactive intervention.
+- Reduce operational delays.
+- Support logistics planning using predictive analytics.
+- Improve supply chain decision making.
+
+---
+
+## 💼 Business Problem
 - 54.8% of APL Logistics orders are delivered late
 - Reactive approach = high operational cost
 - No system to flag high-risk orders proactively
@@ -54,6 +64,16 @@ APL_Logistics_Project/
 
 ---
 
+## ❓ Business Questions
+
+- Which orders have the highest delivery risk?
+- Which features contribute most to late deliveries?
+- Which regions experience higher delivery delays?
+- Which shipping methods are associated with higher risk?
+- How can logistics teams reduce late deliveries?
+
+---
+
 ## Models Trained
 
 | Model | Accuracy | Precision | Recall | F1 Score | ROC-AUC |
@@ -86,6 +106,12 @@ APL_Logistics_Project/
 
 ---
 
+## 📈 Business Impact
+
+This predictive solution enables logistics teams to identify high-risk shipments before dispatch, allowing proactive planning, better resource allocation, and improved customer satisfaction by reducing late deliveries.
+
+---
+
 ## Important Note — Data Leakage
 Initial models showed 97%+ accuracy due to data leakage features (`Delivery Status`, `Days for shipping real`). These features are unavailable before shipment and were removed. Final model accuracy of ~70% represents genuine predictive capability on future unseen orders.
 
@@ -106,7 +132,19 @@ Initial models showed 97%+ accuracy due to data leakage features (`Delivery Stat
 
 ---
 
-## Project Deliverables
+## 🚀 Skills Demonstrated
+
+- Data Cleaning
+- Feature Engineering
+- Exploratory Data Analysis (EDA)
+- Machine Learning
+- Classification Modeling
+- Model Evaluation
+- Risk Scoring
+- Business Analytics
+- Streamlit Deployment
+
+## Project Assets
 - ✅ 3 Jupyter Notebooks (Preprocessing, Training, Risk Scoring)
 - ✅ Streamlit Web Dashboard
 - ✅ Research Paper (PDF)
@@ -114,10 +152,40 @@ Initial models showed 97%+ accuracy due to data leakage features (`Delivery Stat
 
 ---
 
-## Author
+## 👨‍💻 About the Author
 
-**Mohan Lal Kumawat**
-MCA + BCA | 8+ Years Operations Experience
-Unified Mentor Data Analyst Internship
-📧 mohankumawat17@gmail.com
-📱 9782388664
+**Mohan Lal Kumawat**  
+**Business Data Analyst**
+
+📍 **Location:** Udaipur, Rajasthan, India
+
+### 📧 Contact Information
+
+- **Email:** mohankumawat17@gmail.com
+- **Phone:** +91 9782388664
+
+### 💼 Core Skills
+
+- Microsoft Excel
+- SQL (MySQL)
+- Power BI
+- Python
+  - Pandas
+  - NumPy
+  - Matplotlib
+  - Seaborn
+  - Plotly
+- Data Cleaning
+- Exploratory Data Analysis (EDA)
+- Data Visualization
+- Dashboard Development
+- Business Analytics
+
+### 🌐 Connect With Me
+
+- **GitHub:** https://github.com/mohankumawat17-bit
+- **LinkedIn:** https://www.linkedin.com/in/mohan-kumawat-270125aa
+
+---
+
+> **Turning Data into Business Decisions.**
