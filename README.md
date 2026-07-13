@@ -1,9 +1,8 @@
 # 🚚 APL Logistics — Late Delivery Risk Prediction
 
-## Project Overview
-Machine Learning based system to predict late delivery risk in global supply chain operations **before shipment begins**.
+## 📌 Project Overview
 
-Built as part of **Unified Mentor Data Analyst Internship** | May 2026
+This project develops a machine learning solution to predict late delivery risk before shipment begins using historical logistics and supply chain data. The solution identifies high-risk orders, assigns a risk score, and provides actionable insights through an interactive Streamlit dashboard to support proactive logistics planning.
 
 **Live Dashboard:** [Click Here](https://apl-logistics-risk-prediction-2iswovrzbdj5mtpnffjjcn.streamlit.app/)
 
